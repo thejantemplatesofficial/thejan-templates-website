@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thejan Templates Official</title>
+
+    <!-- Logo for Browser Tab (Favicon) -->
+    <link id="dynamic-favicon" rel="icon" type="image/png" href="Thejan Templates Logo (1).png">
+    <link rel="apple-touch-icon" href="Thejan Templates Logo (1).png">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #09090b;
+            color: #ffffff;
+            min-height: 100vh;
+            padding-bottom: 40px;
+        }
+
+        /* Top Header Container */
+        .app-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(9, 9, 11, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-info {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        /* Header Logo Styling */
+        .brand-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            background-color: #18181b;
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .brand-logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 16px rgba(255, 255, 255, 0.4);
+        }
+
+        .brand-name {
+            font-size: 16px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+
+        .verified-badge {
+            font-size: 12px;
+            color: #a1a1aa;
+        }
+
+        /* --- TIKTOK NEON LIVE COUNTER CARD BANNER --- */
+        .tiktok-profile-card {
+            max-width: 1200px;
+            margin: 20px auto 10px;
+            padding: 24px 28px;
+            background: rgba(255, 0, 80, 0.12);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 0, 80, 0.4);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8),
+                        0 0 25px rgba(255, 0, 80, 0.25),
+                        inset 0 0 15px rgba(255, 0, 80, 0.15);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .tiktok-profile-card:hover {
+            border-color: rgba(255, 0, 80, 0.7);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9),
+                        0 0 35px rgba(255, 0, 80, 0.45),
+                        inset 0 0 20px rgba(255, 0, 80, 0.25);
+        }
+
+        .tiktok-user-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .tiktok-avatar-wrapper {
+            position: relative;
+        }
+
+        .tiktok-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ff0050;
+            box-shadow: 0 0 15px rgba(255, 0, 80, 0.6);
+        }
+
+        .live-badge-inline {
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff0050;
+            color: #ffffff;
+            font-size: 8px;
+            font-weight: 900;
+            padding: 2px 6px;
+            border-radius: 8px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 0 8px rgba(255, 0, 80, 0.8);
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .live-dot {
+            width: 5px;
+            height: 5px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            animation: pulseDot 1.2s infinite alternate;
+        }
+
+        @keyframes pulseDot {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        .tiktok-details {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .tiktok-name-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tiktok-display-name {
+            font-size: 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, #ffffff 0%, #ff85a2 50%, #ff0050 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(255, 0, 80, 0.4);
+        }
+
+        .tiktok-handle {
+            font-size: 13px;
+            color: #ff85a2;
+            font-weight: 600;
+            text-shadow: 0 0 6px rgba(255, 0, 80, 0.4);
+        }
+
+        .tiktok-stats {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(15, 5, 10, 0.6);
+            padding: 8px 16px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 0, 80, 0.25);
+            min-width: 90px;
+        }
+
+        .stat-number {
+            font-size: 18px;
+            font-weight: 800;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 0, 80, 0.5);
+        }
+
+        .stat-label {
+            font-size: 10px;
+            color: #ff85a2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .tiktok-neon-action-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #ff0050, #ff4d88);
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 14px;
+            font-size: 13px;
+            font-weight: 800;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 0 15px rgba(255, 0, 80, 0.5);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .tiktok-neon-action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(255, 0, 80, 0.8);
+        }
+
+        /* --- CAPCUT NEON TRANSPARENT WHITE COUNTER CARD BANNER --- */
+        .capcut-profile-card {
+            max-width: 1200px;
+            margin: 10px auto;
+            padding: 24px 28px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.45);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8),
+                        0 0 25px rgba(255, 255, 255, 0.2),
+                        inset 0 0 15px rgba(255, 255, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .capcut-profile-card:hover {
+            border-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9),
+                        0 0 35px rgba(255, 255, 255, 0.4),
+                        inset 0 0 20px rgba(255, 255, 255, 0.25);
+        }
+
+        .capcut-user-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .capcut-avatar-wrapper {
+            position: relative;
+        }
+
+        .capcut-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ffffff;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+        }
+
+        .capcut-badge-inline {
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffffff;
+            color: #000000;
+            font-size: 8px;
+            font-weight: 900;
+            padding: 2px 6px;
+            border-radius: 8px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .capcut-details {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .capcut-name-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .capcut-display-name {
+            font-size: 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #000000;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        .capcut-handle {
+            font-size: 13px;
+            color: #1a1a1a;
+            font-weight: 700;
+            text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+        }
+
+        .capcut-stats {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .capcut-stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.35);
+            padding: 8px 16px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            min-width: 90px;
+        }
+
+        .capcut-stat-number {
+            font-size: 18px;
+            font-weight: 800;
+            color: #000000;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+        }
+
+        .capcut-stat-label {
+            font-size: 10px;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 800;
+        }
+
+        .capcut-neon-action-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffffff;
+            color: #000000;
+            padding: 10px 20px;
+            border-radius: 14px;
+            font-size: 13px;
+            font-weight: 800;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .capcut-neon-action-btn:hover {
+            transform: translateY(-2px);
+            background: #f1f5f9;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.9);
+        }
+
+        @media (max-width: 768px) {
+            .tiktok-profile-card, .capcut-profile-card {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+                margin: 16px;
+                padding: 20px;
+            }
+
+            .tiktok-user-info, .capcut-user-info {
+                flex-direction: column;
+            }
+
+            .tiktok-name-group, .capcut-name-group {
+                justify-content: center;
+            }
+
+            .tiktok-stats, .capcut-stats {
+                justify-content: space-around;
+                border-top: 1px solid rgba(255, 255, 255, 0.2);
+                padding-top: 16px;
+                gap: 12px;
+            }
+
+            .stat-item, .capcut-stat-item {
+                flex: 1;
+                min-width: unset;
+            }
+        }
+
+        /* Search & Filter Bar */
+        .filter-section {
+            max-width: 1200px;
+            margin: 20px auto 10px;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .search-input {
+            width: 100%;
+            background: #18181b;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            padding: 14px 18px;
+            border-radius: 12px;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .search-input:focus {
+            border-color: rgba(255, 255, 255, 0.4);
+            background: #27272a;
+        }
+
+        .filter-tags {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            padding-bottom: 4px;
+        }
+
+        .filter-tags::-webkit-scrollbar { 
+            display: none; 
+        }
+
+        .tag-btn {
+            background: #18181b;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #a1a1aa;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+
+        .tag-btn.active, .tag-btn:hover {
+            background: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
+        }
+
+        /* Grid Feed Container */
+        .templates-grid {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 24px;
+        }
+
+        /* Individual Card Item with White Neon Frame */
+        .template-card {
+            background: #18181b;
+            border: 1.5px solid rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            aspect-ratio: 9 / 16; 
+            position: relative;
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.25), inset 0 0 8px rgba(255, 255, 255, 0.1);
+            transition: all 0.25s ease;
+        }
+
+        .template-card:hover {
+            transform: translateY(-4px);
+            border-color: #ffffff;
+            box-shadow: 0 0 22px rgba(255, 255, 255, 0.6), 0 10px 25px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+
+        .card-video-box {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #000000;
+            cursor: pointer;
+        }
+
+        .card-video-box video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Overlay configuration */
+        .card-video-box .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+            z-index: 4;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Show overlay on hover */
+        .card-video-box:hover .play-overlay {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Keep overlay visible when paused */
+        .card-video-box.paused .play-overlay {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Toggle icons inside overlay based on video state */
+        .card-video-box .icon-pause {
+            display: none;
+        }
+
+        .card-video-box .icon-play {
+            display: block;
+        }
+
+        /* When video is playing, hovering shows Pause icon */
+        .card-video-box:hover .icon-pause {
+            display: block;
+        }
+        .card-video-box:hover .icon-play {
+            display: none;
+        }
+
+        /* When video is paused, show Play icon */
+        .card-video-box.paused .icon-pause {
+            display: none !important;
+        }
+        .card-video-box.paused .icon-play {
+            display: block !important;
+        }
+
+        .badges-container {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            right: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 3;
+        }
+
+        .badge-type {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .status-badge {
+            font-size: 11px;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 12px;
+            backdrop-filter: blur(8px);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .status-badge.available {
+            background: rgba(34, 197, 94, 0.2);
+            color: #4ade80;
+            border: 1px solid rgba(74, 222, 128, 0.3);
+        }
+
+        .status-badge.new {
+            background: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+            border: 1px solid rgba(248, 113, 113, 0.3);
+        }
+
+        .card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 2;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 20%, rgba(0, 0, 0, 0.6) 70%, transparent 100%);
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.3;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .card-meta {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .pill {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(4px);
+            color: #d4d4d8;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 8px;
+        }
+
+        .card-actions {
+            display: flex;
+            width: 100%;
+        }
+
+        .btn-use-template {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            width: 100%;
+            background: #ffffff;
+            color: #000000;
+            font-size: 13px;
+            font-weight: 800;
+            text-align: center;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s ease, opacity 0.2s ease;
+        }
+
+        .btn-use-template:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Bar -->
+    <header class="app-header">
+        <div class="brand-info">
+            <img src="Thejan Templates Logo (1).png" alt="Thejan Templates Logo" class="brand-logo">
+            <div>
+                <h1 class="brand-name">THEJAN TEMPLATES</h1>
+                <p class="verified-badge">@thejantemplates</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- TikTok Profile Card Banner -->
+    <section class="tiktok-profile-card">
+        <div class="tiktok-user-info">
+            <div class="tiktok-avatar-wrapper">
+                <img id="tt-avatar" src="Thejan Templates Logo (1).png" alt="TikTok Avatar" class="tiktok-avatar">
+                <div class="live-badge-inline">
+                    <span class="live-dot"></span>
+                    <span>Live</span>
+                </div>
+            </div>
+            <div class="tiktok-details">
+                <div class="tiktok-name-group">
+                    <span id="tt-display-name" class="tiktok-display-name">THEJAN TEMPLATES</span>
+                </div>
+                <span id="tt-handle" class="tiktok-handle">@thejantemplates</span>
+            </div>
+        </div>
+
+        <div class="tiktok-stats">
+            <div class="stat-item">
+                <span id="tt-followers" class="stat-number">0</span>
+                <span class="stat-label">Followers</span>
+            </div>
+
+            <div class="stat-item">
+                <span id="tt-likes" class="stat-number">0</span>
+                <span class="stat-label">Likes</span>
+            </div>
+
+            <a id="tt-link" href="https://www.tiktok.com/@thejantemplates" target="_blank" rel="noopener noreferrer" class="tiktok-neon-action-btn">
+                <span>TikTok Profile</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- CapCut Profile Card Banner -->
+    <section class="capcut-profile-card">
+        <div class="capcut-user-info">
+            <div class="capcut-avatar-wrapper">
+                <img id="cc-avatar" src="Thejan Templates Logo (1).png" alt="CapCut Avatar" class="capcut-avatar">
+                <div class="capcut-badge-inline">
+                    <span>Creator</span>
+                </div>
+            </div>
+            <div class="capcut-details">
+                <div class="capcut-name-group">
+                    <span id="cc-display-name" class="capcut-display-name">THEJAN TEMPLATES</span>
+                </div>
+                <span id="cc-handle" class="capcut-handle">CapCut Official Creator</span>
+            </div>
+        </div>
+
+        <div class="capcut-stats">
+            <div class="capcut-stat-item">
+                <span id="cc-followers" class="capcut-stat-number">0</span>
+                <span class="capcut-stat-label">Followers</span>
+            </div>
+
+            <div class="capcut-stat-item">
+                <span id="cc-likes" class="capcut-stat-number">0</span>
+                <span class="capcut-stat-label">Likes</span>
+            </div>
+
+            <a id="cc-link" href="https://mobile.capcutshare.com/sv2/ZSXKwbGqu/" target="_blank" rel="noopener noreferrer" class="capcut-neon-action-btn">
+                <span>CapCut Profile</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Search & Filters -->
+    <section class="filter-section">
+        <input type="text" id="search-bar" class="search-input" placeholder="Search templates or songs..." oninput="filterTemplates()">
+        
+        <div class="filter-tags">
+            <button class="tag-btn active" onclick="setCategory('all', this)">All Templates</button>
+            <button class="tag-btn" onclick="setCategory('new', this)">🔥 New Release</button>
+            <button class="tag-btn" onclick="setCategory('available', this)">🟢 Available</button>
+            <button class="tag-btn" onclick="setCategory('Song', this)">Song Edits</button>
+            <button class="tag-btn" onclick="setCategory('Rap', this)">Rap Edits</button>
+        </div>
+    </section>
+
+    <!-- Grid Feed Container -->
+    <main class="templates-grid" id="templates-grid"></main>
+
+    <script>
+        const tikTokData = {
+            displayName: "THEJAN TEMPLATES",
+            handle: "thejantemplates",
+            avatarUrl: "Thejan Templates Logo (1).png",
+            followers: 43,
+            totalLikes: 1215,
+            tiktokUrl: "https://www.tiktok.com/@thejantemplates"
+        };
+
+        const capCutData = {
+            displayName: "THEJAN TEMPLATES",
+            followers: 1117,
+            likes: "21.4K",
+            profileUrl: "https://mobile.capcutshare.com/sv2/ZSXKwbGqu/"
+        };
+
+        const templates = [
+            { id: 28, title: "Pem Sihine Song Template", type: "Song", capcutLink: "https://www.capcut.com/tv2/ZS4RU6dPU/", videoUrl: "Template Previews/preview28.mp4", clips: "1 Clip", audio: "Pem Sihine" },
+            { id: 27, title: "Katu Mathin Yana Jeewithe Song Template", type: "Song", capcutLink: "https://www.capcut.com/tv2/ZS41XAEHj/", videoUrl: "Template Previews/preview27.mp4", clips: "1 Clip", audio: "Obagen Tharam" },
+            { id: 26, title: "Poronduwa Rap Template", type: "Rap", capcutLink: "https://www.capcut.com/tv2/ZS41Xx2Sw/", videoUrl: "Template Previews/preview26.mp4", clips: "1 Clip", audio: "Poronduwa Rap" },
+            { id: 25, title: "Humnava Mere Song Template", type: "Song", capcutLink: "https://www.capcut.com/tv2/ZS41XDogL/", videoUrl: "Template Previews/preview25.mp4", clips: "1 Clip", audio: "Humnava Mere" },
+            { id: 24, title: "Dannawada Mawa Song Template", type: "Song", capcutLink: "https://www.capcut.com/tv2/ZS41Xu4QS/", videoUrl: "Template Previews/preview4.mp4", clips: "1 Clip", audio: "Dannawada Mawa" },
+            { id: 23, title: "Niwuna Numba Hinda Song Template", type: "Song", capcutLink: "https://www.capcut.com/tv2/ZS4JBuqrF/", videoUrl: "Template Previews/preview23.mp4", clips: "1 Clip", audio: "Niwuna Numba Hinda" },
+            { id: 22, title: "Kandulu Watunu Song Template", type: "Song", capcutLink: "https://www.capcut.com/tv2/ZS41XAg47/", videoUrl: "Template Previews/preview22.mp4", clips: "1 Clip", audio: "Kandulu Watunu" },
+            { id: 21, title: "Ridawanne Na Song Template", type: "Song", capcutLink: "https://www.capcut.com/tv2/ZS41XV4Ga/", videoUrl: "Template Previews/preview21.mp4", clips: "1 Clip", audio: "Ridawanne Na" },
+            { id: 20, title: "Api Aye Hamunowana Song Template", type: "Song", capcutLink: "https://www.capcut.com/tv2/ZS41XB6KR/", videoUrl: "Template Previews/preview20.mp4", clips: "1 Clip", audio: "Api Aye Hamunowana" },
+            { id: 19, title: "Yali Hamuwenakan Song Template", type: "Song", capcutLink: "https://www.capcut.com/tv2/ZS41CvJ23/", videoUrl: "Template Previews/preview19.mp4", clips: "1 Clip", audio: "Yali Hamuwenakan" },
+            { id: 18, title: "Hamadama Nawath Song Template", type: "Song", capcutLink: "https://www.capcut.com/tv2/ZS41CEaMM/", videoUrl: "Template Previews/preview18.mp4", clips: "1 Clip", audio: "Hamadama Nawath" },
+            { id: 17, title: "Oya Nisa Mage Sina Song Template", type: "Song", capcutLink: "https://www.capcut.com/tv2/ZS41C7JBk/", videoUrl: "Template Previews/preview17.mp4", clips: "1 Clip", audio: "Oya Nisa Mage Sina" },
+            { id: 16, title: "Muhunata Muna Gahena Song Template", type: "Song", capcutLink: "https://www.capcut.com/tv2/ZS41CvYtw/", videoUrl: "Template Previews/preview16.mp4", clips: "1 Clip", audio: "Muhunata Muna Gahena" },
+            { id: 15, title: "Thanikadai Thama Man Song Template", type: "Song", capcutLink: "https://www.capcut.com/tv2/ZS41XY6nS/", videoUrl: "Template Previews/preview15.mp4", clips: "1 Clip", audio: "Thanikadai Thama Man" },
+            { id: 14, title: "Hitha Hadaganna Ba Song Template", type: "Song", capcutLink: "https://www.capcut.com/tv2/ZS41XRFAb/", videoUrl: "Template Previews/preview14.mp4", clips: "1 Clip", audio: "Hitha Hadaganna Ba" },
+            { id: 13, title: "Nidukin Inu Mana Song Template", type: "Song", capcutLink: "https://www.capcut.com/tv2/ZS41X677t/", videoUrl: "Template Previews/preview13.mp4", clips: "1 Clip", audio: "Nidukin Inu Mana" },
+            { id: 12, title: "Rawatuna Tharam Song Template", type: "Song", capcutLink: "https://www.capcut.com/tv2/ZS41Xd5y4/", videoUrl: "Template Previews/preview12.mp4", clips: "1 Clip", audio: "Rawatuna Tharam" },
+            { id: 11, title: "Hama Husma Ganema Template", type: "Song", capcutLink: "https://www.capcut.com/tv2/ZS41CqNbg/", videoUrl: "Template Previews/preview11.mp4", clips: "1 Clip", audio: "Hama Husma Ganema" },
+            { id: 10, title: "Siththarawi Rap Template", type: "Rap", capcutLink: "https://www.capcut.com/tv2/ZS41CDTdy/", videoUrl: "Template Previews/preview10.mp4", clips: "2 Clips", audio: "Siththarawi Rap" },
+            { id: 9, title: "Hudakalawa Rap Template", type: "Rap", capcutLink: "https://www.capcut.com/tv2/ZS41Cyh9a/", videoUrl: "Template Previews/preview9.mp4", clips: "1 Clip", audio: "Hudakalawa Rap" },
+            { id: 8, title: "Pun Sanda Pasu Pasa Song Template", type: "Song", capcutLink: "https://www.capcut.com/tv2/ZS41CDGLq/", videoUrl: "Template Previews/preview8.mp4", clips: "1 Clip", audio: "Pun Sanda Pasu Pasa" },
+            { id: 7, title: "Sonduru Dawasaka Song Template", type: "Song", capcutLink: "https://www.capcut.com/tv2/ZS41CpxEc/", videoUrl: "Template Previews/preview7.mp4", clips: "1 Clip", audio: "Sonduru Dawasaka" },
+            { id: 6, title: "Hama Mathaka Satahan Song Template", type: "Song", capcutLink: "https://www.capcut.com/tv2/ZS41CD283/", videoUrl: "Template Previews/preview6.mp4", clips: "2 Clips", audio: "Hama Mathaka Satahan" },
+            { id: 5, title: "Pissuwak Kollanta Bo Kara Rap Template", type: "Rap", capcutLink: "https://www.capcut.com/tv2/ZS41CpBso/", videoUrl: "Template Previews/preview5.mp4", clips: "1 Clip", audio: "Pissuwak Kollanta Bo Kara" },
+            { id: 4, title: "Majboor Song Template", type: "Song", capcutLink: "https://www.capcut.com/tv2/ZS41Cp5GC/", videoUrl: "Template Previews/preview4.mp4", clips: "2 Clips", audio: "Majboor" },
+            { id: 3, title: "Sithata Hora Man Song Template", type: "Song", capcutLink: "https://www.capcut.com/tv2/ZS41CqNxM/", videoUrl: "Template Previews/preview3.mp4", clips: "12 Clips", audio: "Sithata Hora Man" },
+            { id: 2, title: "Yali Ma Soyaganna Song Template", type: "Song", capcutLink: "https://www.capcut.com/tv2/ZS41Cm8bQ/", videoUrl: "Template Previews/preview2.mp4", clips: "1 Clip", audio: "Yali Ma Soyaganna" },
+            { id: 1, title: "Duka Wadi Tharamata Song Template", type: "Song", capcutLink: "https://www.capcut.com/tv2/ZS41CN2ye/", videoUrl: "Template Previews/preview1.mp4", clips: "1 Clip", audio: "Duka Wadi Tharamata" }
+        ];
+
+        let selectedCategory = 'all';
+
+        function formatCompactNumber(num) {
+            if (typeof num === 'string') return num;
+            if (isNaN(num) || num === undefined || num === null) return "0";
+            return new Intl.NumberFormat('en-US', {
+                notation: 'compact',
+                compactDisplay: 'short',
+                maximumFractionDigits: 1
+            }).format(num);
+        }
+
+        function safeSetText(id, text) {
+            const el = document.getElementById(id);
+            if (el) el.textContent = text;
+        }
+
+        function safeSetAttr(id, attr, value) {
+            const el = document.getElementById(id);
+            if (el) el[attr] = value;
+        }
+
+        function updateTikTokCard(data) {
+            safeSetText('tt-display-name', data.displayName);
+            safeSetText('tt-handle', '@' + data.handle);
+            safeSetAttr('tt-avatar', 'src', data.avatarUrl);
+            safeSetText('tt-followers', formatCompactNumber(data.followers));
+            safeSetText('tt-likes', formatCompactNumber(data.totalLikes));
+            safeSetAttr('tt-link', 'href', data.tiktokUrl);
+        }
+
+        function updateCapCutCard(data) {
+            safeSetText('cc-display-name', data.displayName);
+            safeSetText('cc-followers', formatCompactNumber(data.followers));
+            safeSetText('cc-likes', formatCompactNumber(data.likes));
+            safeSetAttr('cc-avatar', 'src', tikTokData.avatarUrl);
+            safeSetAttr('cc-link', 'href', data.profileUrl);
+        }
+
+        async function fetchLiveTikTokStats() {
+            updateTikTokCard(tikTokData);
+            updateCapCutCard(capCutData);
+
+            try {
+                const response = await fetch(`https://www.tikwm.com/api/user/info?unique_id=${tikTokData.handle}`);
+                const result = await response.json();
+
+                if (result && result.data && result.data.stats) {
+                    const stats = result.data.stats;
+                    if (stats.follower_count !== undefined) tikTokData.followers = stats.follower_count;
+                    if (stats.heart_count !== undefined) tikTokData.totalLikes = stats.heart_count;
+                    updateTikTokCard(tikTokData);
+                }
+            } catch (error) {
+                console.log("Using local fallback counter values.");
+            }
+        }
+
+        function openCapCut(webUrl) {
+            const path = webUrl.replace(/^https?:\/\/(www\.)?capcut\.com\//, '');
+            const deepLink = `capcut://${path}`;
+            const start = Date.now();
+            window.location.href = deepLink;
+
+            setTimeout(() => {
+                if (Date.now() - start < 1500) {
+                    window.open(webUrl, '_blank');
+                }
+            }, 1000);
+        }
+
+        // Global mechanism to ensure only one template video has sound and plays at a time
+        let activeVideo = null;
+
+        function toggleVideoPlay(boxElement) {
+            const video = boxElement.querySelector('video');
+            if (!video) return;
+
+            if (video.paused) {
+                // Pause any currently playing video first
+                if (activeVideo && activeVideo !== video) {
+                    activeVideo.pause();
+                    activeVideo.muted = true;
+                    const prevBox = activeVideo.closest('.card-video-box');
+                    if (prevBox) prevBox.classList.add('paused');
+                }
+
+                video.muted = false; // Unmute this specific card's sound
+                video.play();
+                boxElement.classList.remove('paused');
+                activeVideo = video;
+            } else {
+                video.pause();
+                video.muted = true;
+                boxElement.classList.add('paused');
+                if (activeVideo === video) {
+                    activeVideo = null;
+                }
+            }
+        }
+
+        function renderGrid(data) {
+            const grid = document.getElementById('templates-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            if (data.length === 0) {
+                grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: #a1a1aa; padding: 40px 0;">No templates found.</p>`;
+                return;
+            }
+
+            data.forEach((item) => {
+                const masterIndex = templates.findIndex(t => t.id === item.id);
+                const isLatestNew = (masterIndex === 0);
+
+                const topBadgeHtml = isLatestNew 
+                    ? `<span class="status-badge new">🔥 New</span>` 
+                    : `<span class="status-badge available">🟢 Available</span>`;
+
+                const card = document.createElement('article');
+                card.className = 'template-card';
+                card.innerHTML = `
+                    <div class="card-video-box paused" onclick="toggleVideoPlay(this)">
+                        <div class="badges-container">
+                            <span class="badge-type">${item.type}</span>
+                            ${topBadgeHtml}
+                        </div>
+
+                        <!-- Each template card has its own independent preview video & audio stream -->
+                        <video loop muted playsinline preload="metadata">
+                            <source src="${item.videoUrl}" type="video/mp4">
+                        </video>
+
+                        <div class="play-overlay">
+                            <!-- Play Icon -->
+                            <svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="#ffffff"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                            <!-- Pause Icon -->
+                            <svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="#ffffff"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <div>
+                            <h2 class="card-title">${item.title}</h2>
+                            <div class="card-meta" style="margin-top: 6px;">
+                                <span class="pill">🎬 ${item.clips}</span>
+                                <span class="pill">🎵 ${item.audio}</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn-use-template" onclick="openCapCut('${item.capcutLink}')">
+                                <span>Use Template</span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterTemplates() {
+            const searchBar = document.getElementById('search-bar');
+            const query = searchBar ? searchBar.value.toLowerCase() : '';
+            
+            const filtered = templates.filter(item => {
+                const matchesSearch = item.title.toLowerCase().includes(query) || item.audio.toLowerCase().includes(query);
+                const masterIndex = templates.findIndex(t => t.id === item.id);
+                const isLatestNew = (masterIndex === 0);
+
+                let matchesCategory = false;
+                if (selectedCategory === 'all') {
+                    matchesCategory = true;
+                } else if (selectedCategory === 'new') {
+                    matchesCategory = isLatestNew;
+                } else if (selectedCategory === 'available') {
+                    matchesCategory = !isLatestNew;
+                } else {
+                    matchesCategory = item.type === selectedCategory;
+                }
+
+                return matchesSearch && matchesCategory;
+            });
+            renderGrid(filtered);
+        }
+
+        function setCategory(cat, button) {
+            selectedCategory = cat;
+            document.querySelectorAll('.tag-btn').forEach(btn => btn.classList.remove('active'));
+            if (button) button.classList.add('active');
+            filterTemplates();
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            fetchLiveTikTokStats();
+            renderGrid(templates);
+        });
+    </script>
+</body>
+</html>
